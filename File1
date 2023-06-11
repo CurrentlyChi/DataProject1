@@ -125,3 +125,11 @@ sns.lmplot(x='Age',y='Survived',hue='Sex',data=titanic_df,palette='winter',x_bin
 
 sns.lmplot(x='Age',y='Survived',hue='Embarked',data=titanic_df,palette='winter',x_bins=generations)
 
+sns.lmplot(x='Age',y='Survived',hue='Pclass',data=titanic_df,palette='winter')
+
+generations=[10,20,40,60,80]
+sns.lmplot(x='Age',y='Survived',hue='Pclass',data=titanic_df,palette='winter',x_bins=generations)
+
+sns.lmplot(x='Age',y='Survived',hue='Sex',data=titanic_df,palette='winter',x_bins=generations)
+
+sns.lmplot(x='Age',y='Survived',hue='Embarked',data=titanic_df,palette='winter',x_bins=generations)
