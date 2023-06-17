@@ -133,3 +133,40 @@ sns.lmplot(x='Age',y='Survived',hue='Pclass',data=titanic_df,palette='winter',x_
 sns.lmplot(x='Age',y='Survived',hue='Sex',data=titanic_df,palette='winter',x_bins=generations)
 
 sns.lmplot(x='Age',y='Survived',hue='Embarked',data=titanic_df,palette='winter',x_bins=generations)
+import os
+import shutil
+
+def separate_files(source_folder, excel_folder, pdf_folder,word_folder,image_folder,other_folder):
+    # Create the destination folders if they don't exist
+    os.makedirs(excel_folder, exist_ok=True)
+    os.makedirs(pdf_folder, exist_ok=True)
+
+    # Iterate over the files in the source folder
+    for filename in os.listdir(source_folder):
+        if filename.endswith('.xlsx'):
+            # Move Excel files to the Excel folder
+            shutil.move(os.path.join(source_folder, filename), os.path.join(excel_folder, filename))
+            print(f"Moved {filename} to {excel_folder}")
+        elif filename.endswith('.pdf'):
+            # Move PDF files to the PDF folder
+            shutil.move(os.path.join(source_folder, filename), os.path.join(pdf_folder, filename))
+            print(f"Moved {filename} to {pdf_folder}")
+        elif filename.endswith('.docx'):
+            shutil.move(os.path.join(source_folder, filename), os.path.join(word_folder, filename))
+        elif filename.endswith('.HEIC'):
+            shutil.move(os.path.join(source_folder, filename), os.path.join(image_folder, filename))
+        elif filename.endswith('.JPG'):
+            shutil.move(os.path.join(source_folder, filename), os.path.join(image_folder, filename))
+            
+        else:
+            shutil.move(os.path.join(source_folder, filename), os.path.join(other_folder, filename))
+
+# Specify the paths for the folders
+source_folder = '/Users/macos/Desktop/source/Download'
+excel_folder = '/Users/macos/Desktop/source/Download/Excel'
+pdf_folder = '/Users/macos/Downloads/source/Download/PDF'
+word_folder = '/Users/macos/Desktop/source/Download/Word'
+image_folder ='/Users/macos/Desktop/source/Download/Image'
+other_folder = '/Users/macos/Desktop/source/Download/Other'
+# Call the function to separate the files
+separate_files(source_folder, excel_folder, pdf_folder,word_folder,image_folder,other_folder)
