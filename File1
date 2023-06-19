@@ -170,3 +170,13 @@ image_folder ='/Users/macos/Desktop/source/Download/Image'
 other_folder = '/Users/macos/Desktop/source/Download/Other'
 # Call the function to separate the files
 separate_files(source_folder, excel_folder, pdf_folder,word_folder,image_folder,other_folder)
+
+import 
+len
+slice
+strice
+split
+list
+tuple
+append
+
